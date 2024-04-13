@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editor de Texto con Bootstrap</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container-fluid mt-5">
+        <div class="row mt-4">
+            <div class="col-md-6">
+                <h5>Configuración del Texto</h5>
+                <label for="txt" class="form-label">Texto:</label>
+                <input id="txt" type="text" class="form-control mb-3">
+                <label for="fondo" class="form-label">Color de fondo:</label>
+                <input type="color" id="fondo" class="form-control mb-3">
+                <label for="texto" class="form-label">Color de texto:</label>
+                <input type="color" id="texto" class="form-control mb-3">
+                <label for="fuente" class="form-label">Tamaño de fuente:</label>
+                <input type="number" id="fuente" class="form-control mb-3">
+                <label for="alto" class="form-label">Alto:</label>
+                <input type="number" id="alto" class="form-control mb-3">
+                <label for="ancho" class="form-label">Ancho:</label>
+                <input type="number" id="ancho" class="form-control mb-3">
+                <label for="borde" class="form-label">Grosor del borde:</label>
+                <input type="number" id="borde" class="form-control mb-3">
+                <label for="tipoborde" class="form-label">Tipo de borde:</label>
+                <select id="tipoborde" class="form-select mb-3">
+                    <option value="solid">Solido</option>
+                    <option value="dotted">Punteado</option>
+                    <option value="double">Doble</option>
+                </select>
+            </div>
+            <div class="col-md-6">
+                <h5>Vista Previa</h5>
+                <div id="area" class="border p-3"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+  var div = document.querySelector('#area');
+  var texto = document.querySelector('#txt');
+
+  texto.addEventListener('keyup', function() {
+    div.innerHTML = texto.value;
+  });
+
+  var fondo = document.getElementById('fondo');
+  fondo.addEventListener('change', function() {
+    div.style.background = fondo.value;
+  });
+
+  var color = document.getElementById('texto');
+  color.addEventListener('change', function() {
+    div.style.color = color.value;
+  });
+
+  var fuente = document.getElementById('fuente');
+  fuente.addEventListener('change', function() {
+    div.style.fontSize = fuente.value + 'px';
+  });
+
+  var alto = document.getElementById('alto');
+  alto.addEventListener('change', function() {
+    div.style.height = alto.value + 'px';
+  });
+
+  var ancho = document.getElementById('ancho');
+  ancho.addEventListener('change', function() {
+    div.style.width = ancho.value + 'px';
+  });
+
+  var borde = document.getElementById('borde');
+  var tipoborde = document.getElementById('tipoborde');
+  borde.addEventListener('change', function() {
+    div.style.border = borde.value + 'px ' + tipoborde.value + ' #000';
+  });
+  tipoborde.addEventListener('change', function() {
+    div.style.border = borde.value + 'px ' + tipoborde.value + ' #000';
+  });
+</script>
+
+</body>
+</html>
